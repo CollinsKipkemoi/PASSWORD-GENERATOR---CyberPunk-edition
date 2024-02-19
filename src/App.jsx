@@ -4,6 +4,7 @@ function App() {
 
   return (
     <div className='root'>
+    <p>App under dev 🛠️.Check back later :)</p>
     </div>
   )
 }
