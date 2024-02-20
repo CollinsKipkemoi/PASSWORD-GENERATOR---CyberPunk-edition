@@ -1,6 +1,7 @@
 import "../App.css"
 import { useState } from "react"
 import zxcvbn from 'zxcvbn';
+import { MdDeleteOutline } from "react-icons/md";
 import securePassword from 'secure-random-password';
 
 
@@ -22,10 +23,10 @@ function Field() {
             uppercase ? securePassword.upper : '',
             numbers ? securePassword.digits : '',
             symbols ? securePassword.symbols : '',
-        ].filter(Boolean); 
+        ].filter(Boolean);
         const password = securePassword.randomPassword({
             length: length,
-            characters: characters.length ? characters : [securePassword.lower, securePassword.upper], 
+            characters: characters.length ? characters : [securePassword.lower, securePassword.upper],
         });
         console.log(password);
         const result = zxcvbn(password);
@@ -78,6 +79,11 @@ function Field() {
                         ))}
                     </ul>
                 </div>
+                <p className="clear" onClick={() => setPasswords([])}>{passwords.length !== 0 ? `clear history ` : ""}
+                    {
+                        passwords.length !== 0 ? <MdDeleteOutline className="delete-icon" /> : ""
+
+                    }</p>
             </div>
         </div>
     )

@@ -118,10 +118,17 @@ label:hover {
 }
 
 /* Part2 */
-h2 {
+
+li, h2, .clear {
   color: white;
 }
 
-li {
-  color: white;
+.clear{
+  text-align: center;
+  width: max-content;
+  cursor: pointer;
+}
+
+.delete-icon{
+  color: yellow;
 }
