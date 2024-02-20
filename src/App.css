@@ -25,9 +25,11 @@
 .password-field {
   border: 1px solid rgb(0, 240, 255);
   height: 30px;
-  min-width: 60%;
+  width: 60%;
   border-radius: 2px;
-  max-width: 300px;
+  color: white;
+  overflow: hidden;
+  padding: 0 5px;
 }
 
 .field {
@@ -117,5 +119,9 @@ label:hover {
 
 /* Part2 */
 h2 {
+  color: white;
+}
+
+li {
   color: white;
 }
