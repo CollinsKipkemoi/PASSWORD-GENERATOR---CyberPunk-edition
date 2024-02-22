@@ -13,6 +13,15 @@ function Field() {
         setLength(parseInt(e.target.value))
     }
 
+    const copyToClipboard = async (text) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            console.log('Text copied to clipboard');
+        } catch (err) {
+            console.log('Failed to copy text: ', err);
+        }
+    }
+
     const generate = () => {
         const uppercase = document.getElementById('uppercase').checked;
         const lowercase = document.getElementById('lowercase').checked;
@@ -44,7 +53,10 @@ function Field() {
                 <div className="buttons">
                     <button className="btn btn-sm generate-btn" onClick={generate}>Generate</button>
                     {/* copy button */}
-                    <button className="btn btn-sm copy-btn">Copy</button>
+                    <button className="btn btn-sm copy-btn" onClick={
+                        () => copyToClipboard(generatedPassword)
+                    
+                    }>Copy</button>
                 </div>
                 {/* slider for taking the length of password */}
                 <input type="range" className="form-range" min="8" max="128" id="customRange2" onChange={handleSlide} />
