@@ -34,7 +34,6 @@
 
 .field {
   display: flex;
-
 }
 
 .buttons {
@@ -213,5 +212,24 @@ h2,
 }
 
 .delete-icon {
+  color: yellow;
+}
+
+.footer p {
+  color: rgb(0, 240, 255);
+}
+
+.footer a {
+  color: yellow;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: yellow;
+}
+
+.copy{
+  cursor: pointer;
   color: yellow;
 }

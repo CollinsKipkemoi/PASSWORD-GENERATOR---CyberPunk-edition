@@ -3,6 +3,9 @@ import { useState } from "react"
 import zxcvbn from 'zxcvbn';
 import { MdDeleteOutline } from "react-icons/md";
 import securePassword from 'secure-random-password';
+import { FaCopy } from "react-icons/fa6";
+import { FaClipboardCheck } from "react-icons/fa";
+
 
 
 function Field() {
@@ -12,11 +15,23 @@ function Field() {
     const handleSlide = (e) => {
         setLength(parseInt(e.target.value))
     }
+    const [copied, setCopied] = useState([]);
 
-    const copyToClipboard = async (text) => {
+    const copyToClipboard = async (text, index) => {
         try {
             await navigator.clipboard.writeText(text);
-            console.log('Text copied to clipboard');
+            setCopied(prevCopied => {
+                const newCopied = [...prevCopied];
+                newCopied[index] = true;
+                return newCopied;
+            });
+            setTimeout(() => {
+                setCopied(prevCopied => {
+                    const newCopied = [...prevCopied];
+                    newCopied[index] = false;
+                    return newCopied;
+                });
+            }, 1000);
         } catch (err) {
             console.log('Failed to copy text: ', err);
         }
@@ -41,6 +56,7 @@ function Field() {
         const result = zxcvbn(password);
         console.log(result.score);
         setPasswords([...passwords, password]);
+        setCopied([...copied, false]);
         setGeneratedPassword(password);
         return password;
     }
@@ -86,9 +102,12 @@ function Field() {
                 <h2>PASSWORD HISTORY</h2>
                 <div className="password-history">
                     <ul>
-                        {passwords.map((password, index) => (
-                            <li key={index}>{password}</li>
-                        ))}
+                    {passwords.map((password, index) => (
+                    <li key={index}>
+                        {password} 
+                        {copied[index] ? <FaClipboardCheck className="copy" /> : <FaCopy className="copy" onClick={()=> copyToClipboard(password, index) } />} 
+                    </li>
+                ))}
                     </ul>
                 </div>
                 <p className="clear" onClick={() => setPasswords([])}>{passwords.length !== 0 ? `clear history ` : ""}
