@@ -24,9 +24,10 @@
 
 .password-field {
   border: 1px solid rgb(0, 240, 255);
+  border-top-right-radius: 14px;
+  border-bottom-left-radius: 14px;
   height: 30px;
   width: 60%;
-  border-radius: 2px;
   color: white;
   overflow: hidden;
   padding: 0 5px;
@@ -179,6 +180,28 @@ input[type=range]:focus::-ms-fill-upper {
 
 }
 
+.password-history {
+  overflow-x: scroll;
+}
+
+.password-history::-webkit-scrollbar {
+  width: 8px;
+}
+
+.password-history::-webkit-scrollbar-track {
+  background: rgb(0, 240, 255);
+  border-radius: 4px;
+}
+
+.password-history::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.password-history::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 input[type="checkbox"] {
   appearance: none;
   width: 15px;
@@ -264,7 +287,8 @@ h2,
     width: 50%;
     justify-content: space-between;
   }
-  .footer{
+
+  .footer {
     display: grid;
     place-content: center;
     width: 80%;
