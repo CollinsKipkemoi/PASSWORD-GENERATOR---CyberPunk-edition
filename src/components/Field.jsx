@@ -62,7 +62,7 @@ function Field() {
     }
     return (
         <div className="container container-fluid mt-2 ps-0 pe-0 field">
-            <div className="container w-50 container-fluid parts">
+            <div className="container container-fluid parts">
                 {/* password field */}
                 <p className="password-field">{generatedPassword}</p>
                 {/* generate button */}
@@ -98,7 +98,7 @@ function Field() {
 
                 </div>
             </div>
-            <div className="container w-50 container-fluid parts">
+            <div className="container container-fluid parts">
                 <h2>PASSWORD HISTORY</h2>
                 <div className="password-history">
                     <ul>

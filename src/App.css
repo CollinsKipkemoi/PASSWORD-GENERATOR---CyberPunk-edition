@@ -42,6 +42,10 @@
 
 }
 
+.parts {
+  width: 50%;
+}
+
 .buttons button {
   background-color: yellow;
   padding: 5px;
@@ -229,7 +233,41 @@ h2,
   color: yellow;
 }
 
-.copy{
+.copy {
   cursor: pointer;
   color: yellow;
+}
+
+@media screen and (max-width: 600px) {
+  .field {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+
+  .parts {
+    width: 80%;
+  }
+
+  .password-field {
+    width: 100%;
+  }
+
+  .header {
+    text-align: start;
+    display: grid;
+    row-gap: 10px;
+    place-content: center;
+  }
+
+  .buttons {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+  }
+  .footer{
+    display: grid;
+    place-content: center;
+    width: 80%;
+    margin: 0 auto;
+  }
 }
