@@ -181,7 +181,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .password-history {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .password-history::-webkit-scrollbar {
