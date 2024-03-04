@@ -294,4 +294,7 @@ h2,
     width: 80%;
     margin: 0 auto;
   }
+  .password-specifications{
+    margin-bottom: 15px;
+  }
 }
